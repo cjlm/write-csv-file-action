@@ -7,9 +7,7 @@ const columns = core
   .split(/,/)
   .map((name) => name.trim());
 const data = columns.map((name) => {
-  const value = core.getInput(name);
-
-  if (!value) throw new Error(`inputs["${name}"] must be set`);
+  const value = core.getInput(name) || '';
 
   return value;
 });
